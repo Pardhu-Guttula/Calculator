@@ -1,0 +1,73 @@
+<html>
+<head>
+	<title>Calculator</title>
+	<link rel="stylesheet" type="text/css" href="Cal.css">
+</head>
+<body>
+	<div class="cal">
+		<table border="1" cellspacing="0">
+			<tr>
+				<td colspan="4" class="demo" id="input">0</td>
+			</tr>
+			<tr>
+ 				<td colspan="2" ><button onclick="push(this)">CLEAR</button></td>
+ 				<td><button onclick="push(this)">BS</button></td>
+ 				<td><button onclick="push(this)">/</button></td>
+ 		    </tr>
+ 		    <tr>
+ 				<td><button onclick="push(this)">7</button></td>
+ 				<td><button onclick="push(this)">8</button></td>
+ 				<td><button onclick="push(this)">9</button></td>
+ 				<td><button onclick="push(this)">*</button></td>
+ 			</tr>
+			<tr>
+ 				<td><button onclick="push(this)">4</button></td>
+ 				<td><button onclick="push(this)">5</button></td>
+ 				<td><button onclick="push(this)">6</button></td>
+ 				<td><button onclick="push(this)">-</button></td>
+ 			</tr>
+ 			<tr>
+ 				<td><button onclick="push(this)">3</button></td>
+ 				<td><button onclick="push(this)">2</button></td>
+ 				<td><button onclick="push(this)">1</button></td>
+ 				<td><button onclick="push(this)">+</button></td>
+ 			</tr>
+ 			<tr>
+ 				<td colspan="2"><button onclick="push(this)">0</button></td>
+ 				<td><button onclick="push(this)">.</button></td>
+ 				<td><button onclick="push(this)">=</button></td>
+ 		 	</tr>
+		</table>
+	</div>
+</body>
+<script type="text/javascript">
+	var inputLabel= document.getElementById('input');
+	function push(obj) 
+ 	{ 
+   		var pushed = obj.innerHTML; 
+   		if (pushed == '=') { 
+   		inputLabel.innerHTML = eval(inputLabel.innerHTML); 
+   	} 
+    else if(pushed=='BS')
+    {
+   		var ex=inputLabel.innerHTML
+   		inputLabel.innerHTML=ex.substring(0,ex.length-1);
+    }
+    else if (pushed == 'CLEAR') 
+    { 
+    	inputLabel.innerHTML = '0';
+    }
+   	else 
+   	{
+     if (inputLabel.innerHTML == '0') 
+     { 
+     	inputLabel.innerHTML = pushed;
+     }
+     else 
+     { 
+      inputLabel.innerHTML += pushed; 
+     } 
+    }
+  }
+</script>
+</html>
